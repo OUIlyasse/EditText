@@ -9,11 +9,18 @@ using System.Windows.Forms;
 
 namespace EditText
 {
-    public partial class Form1 : Form
+    public partial class frmMain : Form
     {
-        public Form1()
+        public frmMain()
         {
             InitializeComponent();
+        }
+
+        private void txtText_Validating(object sender, CancelEventArgs e)
+        {
+            txtResult.Text = txtText.Text.ToLower();
+            if (ckbSave.Checked)
+                Clipboard.SetText(txtResult.Text);
         }
     }
 }
